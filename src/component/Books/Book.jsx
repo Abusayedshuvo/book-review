@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 const Book = ({ book }) => {
-  const { image, tags, bookName, author, category, rating } = book;
+  const { id, image, tags, bookName, author, category, rating } = book;
   return (
-    <Link className="cursor-pointer" to="">
+    <Link className="cursor-pointer" to={`/book-details/${id}`}>
       <div className="rounded-2xl p-6 border border-[#131313]/15">
         <div className="bg-[#F3F3F3] rounded-2xl p-8">
           <img className="mx-auto max-h-36" src={image} alt="" />

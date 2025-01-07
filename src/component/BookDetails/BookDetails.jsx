@@ -1,39 +1,51 @@
-import React from "react";
-import PropTypes from "prop-types";
-import bookImg from "../../assets/pngwing.png";
+import { useLoaderData, useParams } from "react-router-dom";
 
 const BookDetails = () => {
+  const books = useLoaderData();
+  const { id } = useParams();
+  const book = books.find((book) => book.id === parseInt(id));
+  const {
+    image,
+    tags,
+    bookName,
+    author,
+    category,
+    rating,
+    review,
+    totalPages,
+    publisher,
+    yearOfPublishing,
+  } = book;
+
   return (
     <div className="mx-[135px] my-20">
       <div className="grid grid-cols-12 gap-12">
-        <div className="bg-[#131313]/5 p-[74px] rounded-2xl col-span-4">
-          <img className="mx-auto" src={bookImg} alt="" />
+        <div className="bg-[#131313]/5 p-[74px] rounded-2xl col-span-4 flex justify-center items-center">
+          <img className="mx-auto" src={`../${image}`} alt="" />
         </div>
         <div className="col-span-8">
-          <h1 className="text-[24px] font-bold playfair">
-            The Catcher in the Rye
-          </h1>
+          <h1 className="text-[24px] font-bold playfair">{bookName}</h1>
           <p className="font-medium mt-4 text-[#131313]/80 mb-6">
-            By : Awlad Hossain
+            By : {author}
           </p>
           <hr />
-          <p className="text-[#131313]/80 font-medium my-4">Fiction </p>
+          <p className="text-[#131313]/80 font-medium my-4"> {category} </p>
           <hr />
 
           <p className="mt-6">
-            <b> Review :</b> Sit amet consectetur. Interdum porta pulvinar non
-            sit aliquam. Aenean pulvinar blandit vel non enim elementum
-            penatibus pellentesque ac. Nec accumsan euismod nulla adipiscing
-            lectus. Morbi elementum a auctor erat diam tellus. Fermentum
-            faucibus nulla enim ornare. Id neque neque pretium enim platea urna
-            non dictum. Faucibus dignissim ridiculus nibh tristique massa non.
+            <b> Review :</b> {review}
           </p>
 
           <div className="flex items-center  my-6">
             <span className="font-bold me-4">Tag</span>
-            <span className="text-[#23BE0A] font-medium bg-[#23BE0A]/5 px-4 py-2 rounded-[30px]">
-              #Young Adult
-            </span>
+            {tags.map((tag, index) => (
+              <span
+                key={index}
+                className="text-[#23BE0A] font-medium bg-[#23BE0A]/5 px-4 py-2 rounded-[30px] mr-3"
+              >
+                {tag}
+              </span>
+            ))}
           </div>
           <hr />
           <div className="mt-6">
@@ -41,21 +53,19 @@ const BookDetails = () => {
               <tbody className="space-y-5">
                 <tr>
                   <td>Number of Pages:</td>
-                  <td className="font-bold pl-5">
-                    <b>281</b>
-                  </td>
+                  <td className="font-semibold pl-5">{totalPages}</td>
                 </tr>
                 <tr>
                   <td>Publisher:</td>
-                  <td className="font-bold pl-5">J.B Lippincott & Co.</td>
+                  <td className="font-semibold pl-5"> {publisher} </td>
                 </tr>
                 <tr>
                   <td>Year of Publishing:</td>
-                  <td className="font-bold pl-5">1960</td>
+                  <td className="font-semibold pl-5"> {yearOfPublishing} </td>
                 </tr>
                 <tr>
-                  <td>1960</td>
-                  <td className="font-bold pl-5">4.8</td>
+                  <td> Rating </td>
+                  <td className="font-semibold pl-5"> {rating} </td>
                 </tr>
               </tbody>
             </table>
@@ -71,7 +81,5 @@ const BookDetails = () => {
     </div>
   );
 };
-
-BookDetails.propTypes = {};
 
 export default BookDetails;

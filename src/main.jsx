@@ -3,7 +3,6 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Book from "./pages/Book.jsx";
 import BookDetails from "./component/BookDetails/BookDetails.jsx";
 import Home from "./pages/Home.jsx";
 import ListedBooks from "./component/ListedBooks/ListedBooks.jsx";
@@ -18,8 +17,9 @@ const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path: "/book-details",
+        path: "/book-details/:id",
         element: <BookDetails></BookDetails>,
+        loader: () => fetch("../public/books.json"),
       },
       {
         path: "/listed-book",

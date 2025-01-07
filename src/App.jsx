@@ -1,6 +1,5 @@
 import { Outlet } from "react-router-dom";
 import "./App.css";
-import BookDetails from "./component/BookDetails/BookDetails";
 import Header from "./component/Header/Header";
 
 function App() {
@@ -8,7 +7,6 @@ function App() {
     <>
       <Header></Header>
       <Outlet></Outlet>
-      <BookDetails></BookDetails>
     </>
   );
 }
