@@ -1,14 +1,14 @@
+import { Outlet } from "react-router-dom";
 import "./App.css";
-import Banner from "./component/Banner/Banner";
-import Books from "./component/Books/Books";
+import BookDetails from "./component/BookDetails/BookDetails";
 import Header from "./component/Header/Header";
 
 function App() {
   return (
     <>
       <Header></Header>
-      <Banner></Banner>
-      <Books></Books>
+      <Outlet></Outlet>
+      <BookDetails></BookDetails>
     </>
   );
 }
