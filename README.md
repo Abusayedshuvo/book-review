@@ -1,6 +1,5 @@
 # Book Review React Js practice project
 
-
 ## Technologies used
 
 - React Js
@@ -9,3 +8,4 @@
 - React Icons
 - Prop-types
 - React-Toastify
+- React-tabs

@@ -15,6 +15,28 @@ button {
   cursor: pointer;
 }
 
+.not-found {
+  background-image: url(./assets/background-1.png);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.react-tabs__tab-list {
+  border-bottom: 1px solid rgb(19 19 19 / 0.15) !important;
+}
+
+.react-tabs__tab {
+  font-size: 18px;
+  color: rgb(19 19 19 / 0.5) !important;
+}
+
+.react-tabs__tab--selected {
+  color: rgb(19 19 19 / 0.8) !important;
+}
