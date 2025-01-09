@@ -24,7 +24,6 @@ const BookDetails = () => {
 
   const handleRead = (id) => {
     const isExist = readBooks.find((readBook) => readBook == id);
-    console.log(isExist);
     if (!isExist) {
       setReadBooks([...readBooks, id]);
       addToLS(id);
@@ -34,9 +33,26 @@ const BookDetails = () => {
     }
   };
 
+  const [wishlist, setWishlist] = useState([]);
+
+  const handleWishlist = (id) => {
+    const isExist = wishlist.find((wl) => wl == id);
+    const isReadList = readBooks.find((book) => book == id);
+    if (!isReadList) {
+      if (!isExist) {
+        setWishlist([...wishlist, id]);
+        toast("The book is added in your wishlist");
+      } else {
+        toast.error("Already added in wishlist");
+      }
+    } else {
+      toast.error("Already have on Reading List");
+    }
+  };
+
   return (
     <>
-      <ToastContainer />
+      <ToastContainer autoClose={1000} />
       <div className="mx-[135px] my-20">
         <div className="grid grid-cols-12 gap-12">
           <div className="bg-[#131313]/5 p-[74px] rounded-2xl col-span-4 flex justify-center items-center">
@@ -97,7 +113,7 @@ const BookDetails = () => {
                 Read
               </button>
               <button
-                onClick={() => handleRead(id)}
+                onClick={() => handleWishlist(id)}
                 className="ml-4 bg-[#59C6D2] px-7 py-3 text-white rounded-lg text-lg font-semibold h-[57px]"
               >
                 Wishlist

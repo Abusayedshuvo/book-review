@@ -1,6 +1,5 @@
-import React from "react";
 import PropTypes from "prop-types";
-import Book from "./Book";
+import Books from "./Books";
 
 const ListedBooks = (props) => {
   return (
@@ -15,10 +14,10 @@ const ListedBooks = (props) => {
           </option>
           <option>Rating</option>
           <option>Number of pages</option>
-          <option value="">Published year</option>
+          <option>Published year</option>
         </select>
       </div>
-      <Book></Book>
+      <Books></Books>
     </>
   );
 };
