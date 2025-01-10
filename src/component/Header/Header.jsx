@@ -10,7 +10,7 @@ const Header = () => {
         <NavLink to="/listed-book">Listed Books</NavLink>
       </li>
       <li>
-        <a>Pages to Read</a>
+        <NavLink to="/pages-to-read">Pages to Read</NavLink>
       </li>
     </>
   );
@@ -53,9 +53,12 @@ const Header = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className=" bg-[#23BE0A] px-7 py-3 text-white rounded-lg text-lg font-semibold">
+          <NavLink
+            to="/login"
+            className=" bg-[#23BE0A] px-7 py-3 text-white rounded-lg text-lg font-semibold"
+          >
             Sign In
-          </a>
+          </NavLink>
           <a className="ml-4 bg-[#59C6D2] px-7 py-3 text-white rounded-lg text-lg font-semibold">
             Sign Up
           </a>

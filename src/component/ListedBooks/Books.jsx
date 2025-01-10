@@ -1,12 +1,13 @@
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { useEffect, useState } from "react";
-import { getStoreCart } from "../../utilities/localstorage";
+import { getStoreCart, getStoreWishlist } from "../../utilities/localstorage";
 import ReadBooks from "./ReadBooks";
 
 const Books = () => {
   const [books, setBooks] = useState([]);
   const [readBooks, setReadBooks] = useState([]);
+  const [wishlist, setWishlist] = useState([]);
 
   useEffect(() => {
     fetch("books.json")
@@ -28,6 +29,20 @@ const Books = () => {
     }
   }, [books]);
 
+  useEffect(() => {
+    if (books.length > 0) {
+      const storeWishlist = getStoreWishlist();
+      const saveWishlist = [];
+      for (const id of storeWishlist) {
+        const wishlist = books.find((book) => book.id == id);
+        if (wishlist) {
+          saveWishlist.push(wishlist);
+        }
+      }
+      setWishlist(saveWishlist);
+    }
+  }, [books]);
+
   return (
     <>
       <div className="mx-[135px]">
@@ -38,10 +53,10 @@ const Books = () => {
           </TabList>
 
           <TabPanel>
-            <ReadBooks readBooks={readBooks}></ReadBooks>
+            <ReadBooks data={readBooks}></ReadBooks>
           </TabPanel>
           <TabPanel>
-            <h2>Any content 2</h2>
+            <ReadBooks data={wishlist}></ReadBooks>
           </TabPanel>
         </Tabs>
       </div>

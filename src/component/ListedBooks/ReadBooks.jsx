@@ -2,11 +2,12 @@ import { CiLocationOn } from "react-icons/ci";
 import { HiOutlineUsers } from "react-icons/hi2";
 import { MdOutlineStickyNote2 } from "react-icons/md";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
-const ReadBooks = ({ readBooks }) => {
+const ReadBooks = ({ data }) => {
   return (
     <div>
-      {readBooks.map((readBook) => (
+      {data.map((readBook) => (
         <div
           key={readBook.id}
           className="border border-[#131313]/15 p-6 rounded-2xl my-10"
@@ -54,9 +55,14 @@ const ReadBooks = ({ readBooks }) => {
                 <button className="text-[#FFAC33] bg-[#FFAC3326] py-3 px-5 rounded-full">
                   Rating: {readBook.rating}
                 </button>
-                <button className="text-[#fff] bg-[#23BE0A] py-3 px-5 rounded-full font-semibold">
-                  View Details
-                </button>
+                <Link
+                  className="cursor-pointer"
+                  to={`/book-details/${readBook.id}`}
+                >
+                  <button className="text-[#fff] bg-[#23BE0A] py-3 px-5 rounded-full font-semibold">
+                    View Details
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -68,7 +74,7 @@ const ReadBooks = ({ readBooks }) => {
 };
 
 ReadBooks.propTypes = {
-  readBooks: PropTypes.array.isRequired,
+  data: PropTypes.array.isRequired,
 };
 
 export default ReadBooks;

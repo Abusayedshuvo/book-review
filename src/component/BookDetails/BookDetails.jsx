@@ -1,6 +1,6 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import { addToLS } from "../../utilities/localstorage";
+import { addToLS, addWishlistToLS } from "../../utilities/localstorage";
 import { useState } from "react";
 
 const BookDetails = () => {
@@ -27,9 +27,9 @@ const BookDetails = () => {
     if (!isExist) {
       setReadBooks([...readBooks, id]);
       addToLS(id);
-      toast("The book is listed to your reading list.");
+      // toast("The book is listed to your reading list.");
     } else {
-      toast.warn("Already added this one");
+      // toast.warn("Already added this one");
     }
   };
 
@@ -42,6 +42,7 @@ const BookDetails = () => {
       if (!isExist) {
         setWishlist([...wishlist, id]);
         toast("The book is added in your wishlist");
+        addWishlistToLS(id);
       } else {
         toast.error("Already added in wishlist");
       }

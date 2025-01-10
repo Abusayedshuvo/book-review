@@ -9,3 +9,4 @@
 - Prop-types
 - React-Toastify
 - React-tabs
+- Recharts
