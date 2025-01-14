@@ -1,4 +1,4 @@
-.btn-outline {
+.login-area .btn-outline {
   border: solid 1px #e4e4e4;
   border-radius: 8px;
   height: 48px;
@@ -11,7 +11,7 @@
   cursor: pointer;
 }
 
-.required:after {
+.login-area .required:after {
   content: "*";
   color: #fa3b3b;
   margin-left: 2px;
@@ -39,7 +39,7 @@
   margin-right: 10px;
 }
 
-.forgot {
+.login-area .forgot {
   color: #e86969;
   text-decoration: none;
   font-weight: 500;

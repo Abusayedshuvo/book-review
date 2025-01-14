@@ -1,16 +1,36 @@
 import LinkedInImg from "../assets/linkedin.svg";
 import GoogleImg from "../assets/google.svg";
+import { getAuth, signInWithPopup } from "firebase/auth";
+import app from "../utilities/firebase.config";
+import { GoogleAuthProvider } from "firebase/auth";
+
+
+const auth = getAuth(app);
+const googleProvider = new GoogleAuthProvider();
 
 const Login = () => {
+
+const handleGoogleLogin = () => {
+  signInWithPopup(auth, googleProvider)
+  .then(result => {
+    const user = result.user;
+    console.log(user);
+  })
+  .catch(error => {
+    console.log(error);
+  })
+  console.log(app);
+}
+
   return (
     <div className="shadow-2xl p-20 rounded-2xl max-w-2xl mx-auto login-area">
-      <p className="text-3xl font-semibold mb-5">Sign in to your account 👋</p>
+      <p className="text-3xl font-semibold mb-5 text-center">Sign in to your account 👋</p>
       <div className="mt-4 flex justify-between gap-3">
-        <button className="btn-outline flex justify-center items-center gap-3">
+        <button className="btn-outline flex justify-center items-center gap-3 hover:text-black">
           <img src={LinkedInImg} alt="" />
           <span> Sign in with LinkedIn</span>
         </button>
-        <button className="btn-outline  flex justify-center items-center gap-3">
+        <button onClick={handleGoogleLogin} className="btn-outline  flex justify-center items-center gap-3 hover:text-black">
           <img src={GoogleImg} alt="" />
           <span>Sign in with Google</span>
         </button>

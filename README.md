@@ -7,6 +7,7 @@ Here is the live Link
 ## Technologies used
 
 - React Js
+- React Router
 - Tailwind CSS
 - Daisyui
 - React Icons
@@ -14,3 +15,4 @@ Here is the live Link
 - React-Toastify
 - React-tabs
 - Recharts
+- Firebase
