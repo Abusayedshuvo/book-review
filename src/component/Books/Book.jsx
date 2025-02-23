@@ -6,16 +6,16 @@ const Book = ({ book }) => {
   const { id, image, tags, bookName, author, category, rating } = book;
   return (
     <Link className="cursor-pointer" to={`/book-details/${id}`}>
-      <div className="rounded-2xl p-6 border border-[#131313]/15">
+      <div className="rounded-2xl p-3 lg:p-6 border border-[#131313]/15">
         <div className="bg-[#F3F3F3] rounded-2xl p-8">
           <img className="mx-auto max-h-36" src={image} alt="" />
         </div>
         <div className="mt-6">
-          <div className="flex mb-4">
+          <div className="lg:flex mb-4">
             {tags.map((tag, index) => (
               <span
                 key={index}
-                className="text-[#23BE0A] font-medium bg-[#23BE0A]/5 px-4 py-2 rounded-[30px]"
+                className="text-[#23BE0A] font-medium bg-[#23BE0A]/5 px-4 py-2 inline-block rounded-[30px] m-1 lg:m-0"
               >
                 {tag}
               </span>

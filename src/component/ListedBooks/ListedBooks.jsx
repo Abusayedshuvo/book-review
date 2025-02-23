@@ -4,7 +4,7 @@ import Books from "./Books";
 const ListedBooks = (props) => {
   return (
     <>
-      <div className="bg-[#131313]/5 rounded-2xl p-8 mx-[135px] text-center">
+      <div className="bg-[#131313]/5 rounded-2xl p-8 mx-5 lg:mx-[135px] text-center">
         <p className="text-3xl font-bold">Books</p>
       </div>
       <div className="text-center mt-8">

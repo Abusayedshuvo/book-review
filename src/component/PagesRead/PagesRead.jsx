@@ -53,8 +53,8 @@ const PagesRead = () => {
   }, [books]);
 
   return (
-    <div className="mx-[135px]">
-      <div className="bg-[#131313]/5 rounded-3xl p-20 flex flex-col justify-center items-center">
+    <div className="mx-5 lg:mx-[135px]">
+      <div className="bg-[#131313]/5 rounded-3xl p-20 flex flex-col justify-center items-center overflow-scroll">
         <BarChart
           width={1000}
           height={500}

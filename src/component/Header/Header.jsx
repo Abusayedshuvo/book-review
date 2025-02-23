@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
   const menu = (
@@ -18,7 +18,7 @@ const Header = () => {
   return (
     <header className="py-12">
       <div className="navbar bg-base-100 2xl:px-[135px]">
-        <div className="navbar-start">
+        <div className="navbar-start w-full lg:w-1/2 justify-between lg:justify-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
@@ -41,6 +41,20 @@ const Header = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow text-lg"
             >
               {menu}
+
+              <li>
+                <NavLink
+                  to="/login"
+                  className=" bg-[#23BE0A] px-7 py-2 text-white rounded-lg text-sm font-semibold mt-5"
+                >
+                  Sign In
+                </NavLink>
+              </li>
+              <li>
+                <Link className="bg-[#59C6D2] px-7 py-2 text-white rounded-lg text-sm font-semibold mt-3">
+                  Sign Up
+                </Link>
+              </li>
             </ul>
           </div>
           <NavLink to="/" className="btn btn-ghost text-[28px] font-bold">
@@ -52,16 +66,16 @@ const Header = () => {
             {menu}
           </ul>
         </div>
-        <div className="navbar-end">
+        <div className="navbar-end hidden lg:flex">
           <NavLink
             to="/login"
             className=" bg-[#23BE0A] px-7 py-3 text-white rounded-lg text-lg font-semibold"
           >
             Sign In
           </NavLink>
-          <a className="ml-4 bg-[#59C6D2] px-7 py-3 text-white rounded-lg text-lg font-semibold">
+          <Link className="ml-4 bg-[#59C6D2] px-7 py-3 text-white rounded-lg text-lg font-semibold">
             Sign Up
-          </a>
+          </Link>
         </div>
       </div>
     </header>

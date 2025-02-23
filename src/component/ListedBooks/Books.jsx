@@ -45,7 +45,7 @@ const Books = () => {
 
   return (
     <>
-      <div className="mx-[135px]">
+      <div className="mx-5 lg:mx-[135px]">
         <Tabs>
           <TabList>
             <Tab>Read Books</Tab>
